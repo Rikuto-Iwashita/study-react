@@ -1,6 +1,6 @@
 const quizData = [
     {
-        question: "Question 1",
+        question: "Question 1234567890",
         options: ["select 1", "select 2", "select 3", "select 4"],
         answerIndex: 0
     }, {
