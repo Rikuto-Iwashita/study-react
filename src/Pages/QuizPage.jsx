@@ -22,9 +22,7 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (answerLogs.length === MAX_QUIZ_LEN) {
-      const correctNum = answerLogs.filter((answer) => {
-        return answer === true;
-      })
+      const correctNum = answerLogs.filter(answer => answer === true)
       navigation(ROUTES.RESULT, {
         state: {
           maxQuizLen: MAX_QUIZ_LEN,
@@ -32,7 +30,7 @@ export default function QuizPage() {
         }
       })
     }
-  }, [answerLogs])
+  }, [answerLogs, MAX_QUIZ_LEN, navigation])
 
   return (
     <>
@@ -40,13 +38,10 @@ export default function QuizPage() {
         {`Q1. ${quizData[quizIndex].question}`}
       </Display>}
       {
-        quizData[quizIndex] &&quizData[quizIndex].options.map((option, index) => {
-          return (
-            <Button key={`option-${index}`} onClick={() => handleClick(index)}>
-              {option}
-            </Button>
-          )
-        })
+        quizData[quizIndex] && quizData[quizIndex].options.map((option, index) =>
+
+          <Button key={`option-${index}`} onClick={() => handleClick(index)}>{option}</Button>
+        )
       }
     </>
   )
